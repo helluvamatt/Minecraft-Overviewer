@@ -92,7 +92,7 @@ body {
 #playerList {
 	position: absolute;
 	background-image: url(./listbg.png);
-	top: 135px;
+	top: 120px;
 	right: 20px;
 	width: 150px;
 	border: solid;
