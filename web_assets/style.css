@@ -90,24 +90,23 @@ body {
 }
 
 #playerList {
-	position:absolute;
-	background-image:url(./listbg.png);
-	top:55px;
-	right:20px;
-	width:150px; 
-/*	height:*;*/
-	border:solid;
-	border-color:#FFFFFF;
-	border-width:1px;
-	color:#FFFFFF;
-	font-family:Arial;
+	position: absolute;
+	background-image: url(./listbg.png);
+	top: 135px;
+	right: 20px;
+	width: 150px;
+	border: solid;
+	border-color: #FFFFFF;
+	border-width: 1px;
+	color: #FFFFFF;
+	font-family: Arial;
 }
 
 #Players {
-	font-size:80%;
-	left:10px;
-	bottom:10px;
-	top:5px;
+	font-size: 80%;
+	left: 10px;
+	bottom: 10px;
+	top: 5px;
 	font-weight: bold;
 }
 
@@ -119,7 +118,7 @@ body {
 }
 
 #onlinelist > hr {
-	color:#FFFFFF;
-	background:#FFFFFF;
-	height:1px;
+	color: #FFFFFF;
+	background: #FFFFFF;
+	height: 1px;
 }
