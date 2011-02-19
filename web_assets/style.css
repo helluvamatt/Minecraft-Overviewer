@@ -124,7 +124,7 @@ body {
 }
 
 /* time-stamp */
-#time {
+#timestamp {
 	position: absolute;
 	bottom: 20px;
 	right: 5px;
