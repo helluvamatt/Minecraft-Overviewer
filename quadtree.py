@@ -17,7 +17,7 @@ import multiprocessing
 import itertools
 import os
 import os.path
-import hashlibgit 
+import hashlib
 import functools
 import re
 import shutil
