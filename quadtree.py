@@ -17,7 +17,7 @@ import multiprocessing
 import itertools
 import os
 import os.path
-import hashlib
+import hashlibgit 
 import functools
 import re
 import shutil
@@ -26,12 +26,8 @@ import json
 import logging
 import util
 import cPickle
-<<<<<<< HEAD
-from time import localtime, strftime
-=======
 import stat
-from time import gmtime, strftime
->>>>>>> upstream/master
+from time import localtime, strftime
 
 from PIL import Image
 
