@@ -151,7 +151,7 @@ def check_cache(world, chunkXY, oldimg):
 # TODO (which will cause a single chunk update to invalidate everything in the region
 
     if not oldimg[1]: return False
-    chunkfile = os.path.join(world.worlddir, "region", "r.%d.%d.mcr" % (chunkXY[0]//64, chunkXY[1]//64))
+    chunkfile = os.path.join(world.worlddir, "region", "r.%d.%d.mcr" % (chunkXY[0]//32, chunkXY[1]//32))
 
     with open(chunkfile, "rb") as f:
         region = nbt.MCRFileReader(f)
@@ -675,9 +675,9 @@ class ChunkRenderer(object):
         if self.world.useBiomeData:
             biomeColorData = textures.getBiomeData(self.world.worlddir,
                 self.chunkX, self.chunkY)
-        # in the 8x8 block of biome data, what chunk is this?l
-        startX = (self.chunkX - int(math.floor(self.chunkX/8)*8))
-        startY = (self.chunkY - int(math.floor(self.chunkY/8)*8))
+        # in the 32x32 block of biome data, what chunk is this?l
+        startX = self.chunkX % 32
+        startY = self.chunkY % 32
 
         # Each block is 24x24
         # The next block on the X axis adds 12px to x and subtracts 6px from y in the image
@@ -717,14 +717,17 @@ class ChunkRenderer(object):
                 continue
             
             if self.world.useBiomeData:
+                # 16 : number of blocks in a chunk (in one direction)
+                # 32 : number of chunks in a region (and biome file) in one direction
+                # so 16 * 32 == 512 : number of blocks in biome file, in one direction
                 if blockid == 2: #grass
-                    index = biomeColorData[ ((startY*16)+y) * 128 + (startX*16) + x]
+                    index = biomeColorData[ ((startY*16)+y) * 512 + (startX*16) + x]
                     c = textures.grasscolor[index]
 
                     # only tint the top texture
                     t = textures.prepareGrassTexture(c)
                 elif blockid == 18: # leaves
-                    index = biomeColorData[ ((startY*16)+y) * 128 + (startX*16) + x]
+                    index = biomeColorData[ ((startY*16)+y) * 512 + (startX*16) + x]
                     c = textures.foliagecolor[index]
                     
                     t = textures.prepareLeafTexture(c)
