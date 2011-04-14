@@ -51,7 +51,7 @@ function rotate() {
 
 // sync with the actual clock from the server
 function sync() {
- 	$.getJSON('./getServerTime.php',
+ 	$.getJSON('sundial/getServerTime.php',
 		function(data) {
 			$('#debug').text("drift: " + (serverClock - data[0]));
 			serverClock = data[0];

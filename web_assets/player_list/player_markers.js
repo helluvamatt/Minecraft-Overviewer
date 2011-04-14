@@ -26,7 +26,7 @@ function preparePlayerMarker(marker,item) {
 }
 
 function loadPlayerMarkers() {
-    $.getJSON('../markers.json', function(data) {
+    $.getJSON('mapmarkers/markers.json', function(data) {
         deletePlayerMarkers();
         playerMarkers = [];
 		PlayerNames = [];
@@ -65,17 +65,17 @@ function loadPlayerMarkers() {
 			preparePlayerMarker(marker, item);
          }
 		
-		$("#Spieler").empty();
+		$("#Players").empty();
 
 		if(PlayerCount == 0)
 		{
-			$("#Spieler").html('&nbsp;<a href="#" target="_Top"><img src="player_list/home-list.png" border="0" /></a>&nbsp;<font color="lightgreen">' + PlayerCount + '</font> players online');
+			$("#Players").html('&nbsp;<a href="#" target="_Top"><img src="player_list/home-list.png" border="0" /></a>&nbsp;<font color="lightgreen">' + PlayerCount + '</font> players online');
 		}
 		else
 		{
 			PlayerNames.sort();
 			
-			$("#Spieler").html('&nbsp;<a href="#" target="_Top"><img src="player_list/home-list.png" border="0" /></a>&nbsp;<font color="lightgreen">' + PlayerCount + '</font> players online:<br /><br />' + PlayerNames.join(" "));
+			$("#Players").html('&nbsp;<a href="#" target="_Top"><img src="player_list/home-list.png" border="0" /></a>&nbsp;<font color="lightgreen">' + PlayerCount + '</font> players online:<br /><br />' + PlayerNames.join(" "));
 		}
 	});
 }

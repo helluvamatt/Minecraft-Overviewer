@@ -14,7 +14,7 @@ setInterval(loadPlayerMarkers, 1000 * 15);
 setTimeout(loadPlayerMarkers, 1000);
 
 function preparePlayerMarker(marker,item) {
-	var c = "<div class=\"infoWindow\" style='width: 300px'><img src='player_markers/player-avatar.php?player="+item.msg+"&s=3&bc=000&bw=1&format=flat'/><h1>"+item.msg+"</h1></div>";
+	var c = "<div class=\"infoWindow\" style='width: 300px'><img src='player_avatar/player-avatar.php?player="+item.msg+"&s=3&bc=000&bw=1&format=flat'/><h1>"+item.msg+"</h1></div>";
 	var infowindow = new google.maps.InfoWindow({content: c});
 	google.maps.event.addListener(marker, 'click', function() {
 		infowindow.open(map,marker);
@@ -22,7 +22,7 @@ function preparePlayerMarker(marker,item) {
 }
 
 function loadPlayerMarkers() {
-	$.getJSON('markers.json', function(data) {
+	$.getJSON('mapmarkers/markers.json', function(data) {
 		deletePlayerMarkers();
 		playerMarkers = [];
 		for (i in data) {
