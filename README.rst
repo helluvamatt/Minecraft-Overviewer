@@ -19,6 +19,8 @@ http://github.com/brownan/Minecraft-Overviewer/wiki/Map-examples
 Further documentation may be found at
 https://github.com/brownan/Minecraft-Overviewer/wiki/Documentation
 
+Documentation for the add-ons to WorldGuard can be found in their respective directories under the web_assets directory.
+
 To contact the developers and other users, go to the site at the top of this
 README, or go to #overviewer on irc.freenode.net.
 
@@ -47,7 +49,7 @@ FabianN's Additions
 
 * Built in MapMarkers for Bukkit <http://forums.bukkit.org/threads/mapmarkers-v0-2.843/> support.
 
-* The player's skin used for the player's mapmarker.
+* The player's skin used for the player's mapmarker. (not currently in use, I hope to change this soon)
 
 * A list of currently online players which links you to the location of the player on the map.
 
@@ -133,19 +135,23 @@ MapMarker
 --------------
 MapMarkers support has been integrated into Overviewer. For MapMarkers to work you need to have the MapMarkers Bukkit plugin installed which can be downloaded here: http://forums.bukkit.org/threads/mapmarkers-v0-2.843/
 
-Ensure that the plugin outputs the player markers into the same directory as your map's index.html file is as markers.json.
+Edit the MapMarker's config file to output the file to "<LOCATIONOFMAP>/mapmarkers/markers.json"
 
 Sundial
 -------
 Sundial support has been intergrated into Overviewer. For Sundial to work you need to have the nbt.class.php file by Justin Martian in the same folder as is index.html and you need to point it to the location of the level.dat file.
 
-nbt.class.php can be downloaded from <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Look for his Subversion repository, you'll find it in there.
-
-Since this file just needs to be with index.html you can place it either in the web_assets folder or in the web directory that the overviewer outputs the map to.
+nbt.class.php can be downloaded from <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Look for the link to his Subversion repository and nbt.class.php should be listed there.
+Place nbt.class.php in "<LOCATIONOFOVERVIEWER>/web_assets/sundial/"
 
 WorldGuard2OverviewerRegion
 -------
-WorldGuard highlighting has been intergrated into Overviewer. For WorldGuard2OverviewerRegion to work you need to edit the file web_assets/wg_region/regions5.js.php, point it to the location of the WorldGuard region.yml file.
+WorldGuard highlighting has been intergrated into Overviewer. For WorldGuard2OverviewerRegion to work you will need to have the WorldGuard <http://forums.bukkit.org/threads/sec-worldguard-5-0-alpha9-multi-world-fire-and-polygonal-cuboid-region-protection-with-blacklist.790/> plugin (which also requires WorldEdit<http://forums.bukkit.org/threads/edit-sec-worldedit-4-3-world-cuboid-editing-minecraft-1-4-supported-621.62/>).
+
+You will need to edit the file "<LOCATIONOFOVERVIEWER>/web_assets/wg_region/regions5.js.php"
+
+The third line, where it says "<serverdir>\plugins\WorldGuard\worlds\<worldname>\regions.yml", replace that with the location of the regions.yml file for WorldGuard.
+
 
 Compiling the C Extension
 ------------------------- 
