@@ -1,0 +1,30 @@
+*.pyc
+build
+terrain.png
+cachedir*
+
+# vim swap files
+.*.swp
+
+# user-provided settings file
+settings.py
+
+# header files that may be copied over, if missing
+ImPlatform.h
+Imaging.h
+
+# various forms of compiled c_overviewer extensions
+c_overviewer.so
+c_overviewer.pyd
+c_overviewer_d.pyd
+c_overviewer.dylib
+
+# Mac OS X noise
+.DS_Store
+
+#Script files, as users may want their own scripts.
+*.sh
+*.bat
+
+# Sundial
+nbt.class.php
