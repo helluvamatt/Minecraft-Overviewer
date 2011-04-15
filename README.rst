@@ -1,6 +1,6 @@
-====================
-Minecraft Overviewer
-====================
+﻿========================================
+FabianN's Re-Packed Minecraft Overviewer
+﻿========================================
 By Andrew Brown and contributors (see CONTRIBUTORS.rst).
 
 http://github.com/brownan/Minecraft-Overviewer
@@ -42,6 +42,21 @@ Features
 * Throw the output directory up on a web server to share your Minecraft world
   with everyone!
 
+FabianN's Additions
+-------------------
+
+* Built in MapMarkers for Bukkit <http://forums.bukkit.org/threads/mapmarkers-v0-2.843/> support.
+
+* The player's skin used for the player's mapmarker.
+
+* A list of currently online players which links you to the location of the player on the map.
+
+* A timestamp of when the map was generated.
+
+* Sundial, current server time with a day/night graphic.
+
+* WorldGuard Region highlighting.
+
 Requirements
 ============
 This program requires:
@@ -52,6 +67,9 @@ This program requires:
 * Either the Minecraft client installed, or a terrain.png file. See the
   `Textures`_ section below.
 * A C compiler.
+* Bukkit's MapMarkers plugin <http://forums.bukkit.org/threads/mapmarkers-v0-2.843/>
+* nbt.class.php by Justin Martian available at <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Place in either the web_assets folder or in the web directory for the map.
+* WorldGuard Plugin <http://forums.bukkit.org/threads/sec-worldguard-5-0-alpha9-multi-world-fire-and-polygonal-cuboid-region-protection-with-blacklist.790/>
 
 If you download a binary package, then some or all of these may not be required.
 
@@ -110,6 +128,24 @@ If the "biomes" folder is present in the world directory, then the Overviewer
 will use the biome data to tint grass and leaves automatically -- there is no
 command line option to turn this feature on.  If this folder does not exist,
 then the Overviewer will use a static tinting for grass and leaves.
+
+MapMarker
+--------------
+MapMarkers support has been integrated into Overviewer. For MapMarkers to work you need to have the MapMarkers Bukkit plugin installed which can be downloaded here: http://forums.bukkit.org/threads/mapmarkers-v0-2.843/
+
+Ensure that the plugin outputs the player markers into the same directory as your map's index.html file is as markers.json.
+
+Sundial
+-------
+Sundial support has been intergrated into Overviewer. For Sundial to work you need to have the nbt.class.php file by Justin Martian in the same folder as is index.html and you need to point it to the location of the level.dat file.
+
+nbt.class.php can be downloaded from <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Look for his Subversion repository, you'll find it in there.
+
+Since this file just needs to be with index.html you can place it either in the web_assets folder or in the web directory that the overviewer outputs the map to.
+
+WorldGuard2OverviewerRegion
+-------
+WorldGuard highlighting has been intergrated into Overviewer. For WorldGuard2OverviewerRegion to work you need to edit the file web_assets/wg_region/regions5.js.php, point it to the location of the WorldGuard region.yml file.
 
 Compiling the C Extension
 ------------------------- 
@@ -296,3 +332,15 @@ An incomplete list of things I want to do soon is:
 
 * Some kind of graphical interface.
 
+
+Changes by FabianN
+------------------
+This is just my personal configuration of Overviewer and I decided to share it, maybe make it easier for someone to host their own map with MapMarkers integration (and possibly more, in the future). My additions would not be possible without the work of others. Here the pieces of code from others that I have intergrated with my package of Overviewer:
+
+* The user's skin showing up as their icon on the map. Thanks to ethzero/Billiam for the Player-Avatar add-on. https://github.com/Billiam/Minecraft-Overviewer-Addons
+
+* The Online Players list. Thanks to datLicht for the player list. http://forums.bukkit.org/threads/mapmarkers-v0-2.843/page-2#post-37817
+
+* Sundial and server time. Thanks to Sunkid for the sundial. https://github.com/sunkid/minecraft-sundial
+
+* WorldGuard overlay. Thanks to Pironic for WorldGuard2OverviewerRegion. https://github.com/pironic/WG2OvR
