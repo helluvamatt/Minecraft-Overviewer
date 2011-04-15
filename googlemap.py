@@ -120,7 +120,7 @@ class MapGen(object):
 
         index = open(indexpath, 'r').read()
         index = index.replace(
-                "{time}", str(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())))
+                "{time}", str(strftime("%a, %d %b %Y %I:%M:%S %S %Z", localtime())))
 
         with open(os.path.join(self.destdir, "index.html"), 'w') as output:
             output.write(index)

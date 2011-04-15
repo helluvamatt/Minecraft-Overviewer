@@ -28,7 +28,7 @@ import cPickle
 import stat
 import errno 
 import time
-from time import gmtime, strftime, sleep
+from time import gmtime, localtime, strftime, sleep
 
 from PIL import Image
 
