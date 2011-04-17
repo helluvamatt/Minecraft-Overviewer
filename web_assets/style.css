@@ -65,61 +65,6 @@ body {
     background-color: rgba(255,255,255,0.8);
 }
 
-/* CSS for Playerlist */
-#playerList A:link {
-    text-decoration: none;
-    color: #fff;
-}
-
-#playerList A:hover {
-    text-decoration: none;
-    color: #fff;
-}
-
-#playerList A:active {
-    text-decoration: none;
-    color: #fff;
-}
-
-#playerList A:visited {
-    text-decoration: none;
-    color: #fff;
-}
-
-#playerList {
-	position: absolute;
-	background-image: url(./player_list/listbg.png);
-	top: 120px;
-	right: 20px;
-	width: 150px;
-	border: solid;
-	border-color: #FFFFFF;
-	border-width: 1px;
-	color: #FFFFFF;
-	font-family: Arial;
-}
-
-#Players {
-	font-size: 80%;
-	left: 10px;
-	bottom: 10px;
-	top: 5px;
-	font-weight: bold;
-}
-
-#onlinelist {
-	font-size: 80%;
-	position: relative;
-	text-align: center;
-	top: 5px;
-}
-
-#onlinelist > hr {
-	color: #FFFFFF;
-	background: #FFFFFF;
-	height: 1px;
-}
-
 /* time-stamp */
 #timestamp {
 	position: absolute;
@@ -127,7 +72,7 @@ body {
 	right: 5px;
 	padding-left: 2px;
 	padding-right: 3px;
-	background-image: url(./player_list/listbg.png);
+	background-image: url(./timebg.png);
 	border: solid;
 	border-color: #FFF;
 	border-width: 1px;
