@@ -49,7 +49,7 @@ FabianN's Additions
 
 * Built in MapMarkers for Bukkit <http://forums.bukkit.org/threads/mapmarkers-v0-2.843/> support.
 
-* The player's skin used for the player's mapmarker. (not currently in use, I hope to change this soon)
+* The player's skin used for the player's mapmarker.
 
 * A list of currently online players which links you to the location of the player on the map.
 
@@ -341,7 +341,7 @@ An incomplete list of things I want to do soon is:
 
 Changes by FabianN
 ------------------
-This is just my personal configuration of Overviewer and I decided to share it, maybe make it easier for someone to host their own map with MapMarkers integration (and possibly more, in the future). My additions would not be possible without the work of others. Here the pieces of code from others that I have intergrated with my package of Overviewer:
+This is just my personal configuration of Overviewer and I decided to share it, maybe make it easier for someone to host their own map with MapMarkers integration and many other great additions. My additions would not be possible without the work of others who created many of these components (I just put it all together). Here the pieces of code from others that I have intergrated with my package of Overviewer:
 
 * The user's skin showing up as their icon on the map. Thanks to ethzero/Billiam for the Player-Avatar add-on. https://github.com/Billiam/Minecraft-Overviewer-Addons
 
