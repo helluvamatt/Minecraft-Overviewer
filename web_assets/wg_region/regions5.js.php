@@ -40,7 +40,7 @@
         
         //center
         $output .= "   //{$label}:top layer\n";
-        $output .= "   {\"color\": \"{$color}\", \"opacity\": 0.5, \"closed\": true, \"path\": [\n";
+        $output .= "   {\"label\": \"{$label}-top\", \"color\": \"{$color}\", \"opacity\": 0.5, \"closed\": true, \"path\": [\n";
         $output .= "     {\"x\": {$minx}, \"y\": {$maxy}, \"z\": {$minz}},\n";
         $output .= "     {\"x\": {$minx}, \"y\": {$maxy}, \"z\": {$maxz}},\n";
         $output .= "     {\"x\": {$maxx}, \"y\": {$maxy}, \"z\": {$maxz}},\n";
@@ -50,7 +50,7 @@
         if($cube) {
             //isometric cube draw
             $output .= "   //{$label}:isometric projection-left\n";
-            $output .= "   {\"color\": \"{$color}\", \"opacity\": 0.5, \"closed\": true, \"path\": [\n";
+            $output .= "   {\"label\": \"{$label}-isoleft\", \"color\": \"{$color}\", \"opacity\": 0.5, \"closed\": true, \"path\": [\n";
             $output .= "     {\"x\": {$minx}, \"y\": {$miny}, \"z\": {$minz}},\n";
             $output .= "     {\"x\": {$minx}, \"y\": {$miny}, \"z\": {$maxz}},\n";
             $output .= "     {\"x\": {$minx}, \"y\": {$maxy}, \"z\": {$maxz}},\n";
@@ -58,7 +58,7 @@
             $output .= "   ]},\n";
             
             $output .= "   //{$label}:isometric projection-right\n";
-            $output .= "   {\"color\": \"{$color}\", \"opacity\": 0.5, \"closed\": true, \"path\": [\n";
+            $output .= "   {\"label\": \"{$label}-isoright\", \"color\": \"{$color}\", \"opacity\": 0.5, \"closed\": true, \"path\": [\n";
             $output .= "     {\"x\": {$maxx}, \"y\": {$maxy}, \"z\": {$maxz}},\n";
             $output .= "     {\"x\": {$minx}, \"y\": {$maxy}, \"z\": {$maxz}},\n";
             $output .= "     {\"x\": {$minx}, \"y\": {$miny}, \"z\": {$maxz}},\n";
