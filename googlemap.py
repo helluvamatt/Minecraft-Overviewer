@@ -19,7 +19,7 @@ import stat
 import cPickle
 import Image
 import shutil
-from time import strftime, gmtime
+from time import strftime, gmtime, localtime
 import json
 
 import util
