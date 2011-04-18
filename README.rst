@@ -139,10 +139,13 @@ Edit the MapMarker's config file to output the file to "<LOCATIONOFMAP>/mapmarke
 
 Sundial
 -------
-Sundial support has been intergrated into Overviewer. For Sundial to work you need to have the nbt.class.php file by Justin Martian in the same folder as is index.html and you need to point it to the location of the level.dat file.
+Sundial support has been intergrated into Overviewer. For Sundial to work you need to have the nbt.class.php file by Justin Martian in the same folder as is index.html and you need to point getServerTime.php to the location of the level.dat file.
 
 nbt.class.php can be downloaded from <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Look for the link to his Subversion repository and nbt.class.php should be listed there.
 Place nbt.class.php in "<LOCATIONOFOVERVIEWER>/web_assets/sundial/"
+
+You can find getServerTime.php at "<LOCATIONOFOVERVIEWER>/web_assets/sundial/". Look for the line "$nbt->loadFile("/minecraft/world/level.dat");" and change it to point to the location of your level.dat file.
+
 
 WorldGuard2OverviewerRegion
 -------
