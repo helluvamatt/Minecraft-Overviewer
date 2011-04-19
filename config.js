@@ -1,7 +1,7 @@
 
   var config = {
     tileSize:     384,
-    defaultZoom:  2,
+    defaultZoom:  5,
     maxZoom:      {maxzoom},
     // center on this point, in world coordinates, ex:
     //center:       [0,0,0],
@@ -50,7 +50,7 @@ var signGroups = [
  *     checked : boolean.  Set to true to have the group visible by default
  */
 var regionGroups = [
-    //{label: "All", clickable: false, checked: false, match: function(s) {return true}},
+    {label: "All", clickable: true, checked: false, match: function(s) {return true}},
 ];
 
 /* mapTypeData -- a list of alternate map renderings available. At least one rendering must be

@@ -20,7 +20,7 @@
 
 #playerList {
 	position: absolute;
-	background-image: url(./player_list/listbg.png);
+	background-image: url(./listbg.png);
 	top: 120px;
 	right: 20px;
 	width: 150px;
