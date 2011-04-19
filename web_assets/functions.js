@@ -275,9 +275,9 @@ function initRegions() {
                 // add the region infowindow popup
                 infowindow = new google.maps.InfoWindow();
                 google.maps.event.addListener(shape, 'click', function(e,i) {
-                        
+                        var xyz = fromLatLngToWorld(e.latLng.lat(), e.latLng.lng());
                         var contentString = "<b>Region: "+this.name+"</b><br />";
-                        contentString += "Clicked Location: <br />" + e.latLng.lat() + "," + e.latLng.lng() + "<br />";
+                        contentString += "Clicked Approx Location: <br />x:" + Math.floor(xyz.x) + ", y:"+Math.floor(xyz.y)+", z:"+Math.floor(xyz.z)+"<br />";
 
                         // Replace our Info Window's content and position
                         infowindow.setContent(contentString);
@@ -319,6 +319,20 @@ function initMarkers() {
                     icon: iconURL
                 });
             continue;
+        }
+        
+        if (item.type == 'querypos') { 
+            // Set on page load if MC x/y/z coords are given in the query string
+
+            iconURL = 'http://google-maps-icons.googlecode.com/files/regroup.png';
+            var converted = fromWorldToLatLng(item.x, item.y, item.z);
+            var marker = new google.maps.Marker({position: converted,
+                    map: map,
+                    title: jQuery.trim(item.msg), 
+                    icon: iconURL
+                });
+            continue;
+
         }
 
         if (item.type == 'querypos') { 
@@ -421,13 +435,14 @@ function initialize() {
                                           config.center[2]);
     var lat = defaultCenter.lat();
     var lng = defaultCenter.lng();
-    
     var zoom = config.defaultZoom;
+
     var hasquerypos = false;
     var queryx = 0;
     var queryy = 64;
     var queryz = 0;
     var mapcenter;
+
     var pairs = query.split("&");
     for (var i=0; i<pairs.length; i++) {
         // break each pair at the first "=" to obtain the argname and value
@@ -583,6 +598,7 @@ function fromWorldToLatLng(x, z, y)
 
 // NOTE: X, Y and Z in this function are Minecraft world definitions
 // (that is, X is horizontal, Y is altitude and Z is vertical).
+
 function fromLatLngToWorld(lat, lng)
 {
     // Initialize world x/y/z object to be returned
@@ -612,7 +628,6 @@ function fromLatLngToWorld(lat, lng)
     // only latitude and longitude, so assume Y=64.
     xyz.x += 64 + 1;
     xyz.z -= 64 + 2;
-    
     return xyz;
 }
 
