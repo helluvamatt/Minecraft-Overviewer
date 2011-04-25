@@ -211,6 +211,7 @@ function drawMapControls() {
 // parse the data as definned in the regions.js
 function initRegions() {
     if (regionsInit) { return; }
+    if (typeof(regionData) == "undefined") { return; } // skip this if we have no region.js file
     regionsInit = true;
     
     for (i in regionGroups) {
@@ -295,6 +296,7 @@ function initRegions() {
 // may need to be reviewed by agrif or someone else... little finicky right now.
 function initMarkers() {
     if (markersInit) { return; } // oh, we've already done this? nevermind, exit the function.
+    if (typeof(markerData) == "undefined") { return; } // no markers.js file, so skip this.
     markersInit = true; // now that we've started, dont have to do it twice.
     
     // first, give all collections an empty array to work with
@@ -492,7 +494,6 @@ function initialize() {
         },
         mapTypeId: mapTypeIdDefault,
         streetViewControl: false,
-        backgroundColor: config.bg_color,
     };
     map = new google.maps.Map(document.getElementById('mcmap'), mapOptions);
 
@@ -516,9 +517,6 @@ function initialize() {
       map.mapTypes.set('mcmap' + MCMapType[idx].name, MCMapType[idx]);
     }
     
-    // We can now set the map to use the 'coordinate' map type
-    map.setMapTypeId(mapTypeIdDefault);
-
     // initialize the markers and regions
     initMarkers();
     initRegions();
@@ -533,7 +531,17 @@ function initialize() {
     google.maps.event.addListener(map, 'center_changed', function() {
         makeLink();
     });
-
+    google.maps.event.addListener(map, 'maptypeid_changed', function() {
+        var newType = map.getMapTypeId();
+        for(i in mapTypeData) {
+            if( 'mcmap' + mapTypeData[i].label == newType ) {
+                $('#mcmap').css('background-color', mapTypeData[i].bg_color);
+                break;
+            }
+        }
+    });
+    // We can now set the map to use the 'coordinate' map type
+    map.setMapTypeId(mapTypeIdDefault);
 }
 
 
@@ -668,7 +676,7 @@ for (idx in mapTypeData) {
         getTileUrl: getTileUrlGenerator(view.path, view.base, imgformat),
         tileSize: new google.maps.Size(config.tileSize, config.tileSize),
         maxZoom:  config.maxZoom,
-        minZoom:  0,
+        minZoom:  config.minZoom,
         isPng:    !(imgformat.match(/^png$/i) == null)
     };
   
