@@ -1,6 +1,7 @@
 <?php 
+    include '../info.php';
     // OPTIONS HERE.... ooooOooo so many options it's overwhelming, how are you ever going to get through all of these!?
-    $yml = @'<serverdir>\plugins\WorldGuard\worlds\<worldname>\regions.yml';  //regions.yml
+//    $yml = @'<serverdir>\plugins\WorldGuard\worlds\<worldname>\regions.yml';  //regions.yml
     $color_chestdeny = "#880000"; // what color should the region be when the flag chestaccess-deny is found?
     $color_normal = "#FFAA00"; // what color should normal regions be colored as?
     $debug = false; // will break overviewer, but show the contents of the arrays... debuging only.

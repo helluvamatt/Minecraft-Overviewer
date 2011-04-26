@@ -4,12 +4,13 @@
 // requires the nbt class which can be downloaded from frozenfire's svn server:
 // http://svn.thefrozenfire.com/minecraft/NBT/trunk/ 
 
-require("nbt.class.php");
+require("../nbt.class.php");
 
 $nbt = new nbt();
 
+include '../info.php';
 // change to point to your world's level.dat file
-$nbt->loadFile("<serverDIR>/level.dat");
+//$nbt->loadFile("<serverDIR>/level.dat");
 
 $a=array();
 foreach($nbt->root[0]['value'][0]['value'] as $dat) {

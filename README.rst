@@ -59,6 +59,8 @@ FabianN's Additions
 
 * WorldGuard Region highlighting.
 
+* Minecraft weather display (current and forcast)
+
 Requirements
 ============
 This program requires:
@@ -70,7 +72,7 @@ This program requires:
   `Textures`_ section below.
 * A C compiler.
 * Bukkit's MapMarkers plugin <http://forums.bukkit.org/threads/mapmarkers-v0-2.843/>
-* nbt.class.php by Justin Martian available at <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Place in either the web_assets folder or in the web directory for the map.
+* nbt.class.php by Justin Martian available at <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Place in either the web_assets folder or in the web directory for the map, same location as index.html.
 * WorldGuard Plugin <http://forums.bukkit.org/threads/sec-worldguard-5-0-alpha9-multi-world-fire-and-polygonal-cuboid-region-protection-with-blacklist.790/>
 
 If you download a binary package, then some or all of these may not be required.
@@ -132,29 +134,39 @@ command line option to turn this feature on.  If this folder does not exist,
 then the Overviewer will use a static tinting for grass and leaves.
 
 MapMarker
---------------
+---------
 MapMarkers support has been integrated into Overviewer. For MapMarkers to work you need to have the MapMarkers Bukkit plugin installed which can be downloaded here: http://forums.bukkit.org/threads/mapmarkers-v0-2.843/
 
-Edit the MapMarker's config file to output the file to "<LOCATIONOFMAP>/mapmarkers/markers.json"
+Edit the MapMarker's config file to output the file to "*<LOCATIONOFMAP>/mapmarkers/markers.json*"
 
 Sundial
 -------
-Sundial support has been intergrated into Overviewer. For Sundial to work you need to have the nbt.class.php file by Justin Martian in the same folder as is index.html and you need to point getServerTime.php to the location of the level.dat file.
+Sundial displays the current time and a rotating image that reflects the sun/moon.
 
-nbt.class.php can be downloaded from <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Look for the link to his Subversion repository and nbt.class.php should be listed there.
-Place nbt.class.php in "<LOCATIONOFOVERVIEWER>/web_assets/sundial/"
+**Setup Requirements :**
 
-You can find getServerTime.php at "<LOCATIONOFOVERVIEWER>/web_assets/sundial/". Look for the line "$nbt->loadFile("/minecraft/world/level.dat");" and change it to point to the location of your level.dat file.
+* nbt.class.php needs to be placed in "*<LOCATIONOFOVERVIEWER>/web_assets*". You can download nbt.class.php from <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Look for the link to his Subversion repository and nbt.class.php should be listed there.
+
+* You will need to edit the file "*<LOCATIONOFOVERVIEWER>/web_assets/info.php*". The second line, where it says "*<serverDIR>/level.dat*", replace that with the location of the level.dat file of your minecraft world.
 
 
 WorldGuard2OverviewerRegion
--------
-WorldGuard highlighting has been intergrated into Overviewer. For WorldGuard2OverviewerRegion to work you will need to have the WorldGuard <http://forums.bukkit.org/threads/sec-worldguard-5-0-alpha9-multi-world-fire-and-polygonal-cuboid-region-protection-with-blacklist.790/> plugin (which also requires WorldEdit<http://forums.bukkit.org/threads/edit-sec-worldedit-4-3-world-cuboid-editing-minecraft-1-4-supported-621.62/>).
+---------------------------
+WorldGuard displays regions defined in WorldGuard with an overlay.
 
-You will need to edit the file "<LOCATIONOFOVERVIEWER>/web_assets/wg_region/regions5.js.php"
+**Setup Requirements :**
 
-The third line, where it says "<serverdir>\plugins\WorldGuard\worlds\<worldname>\regions.yml", replace that with the location of the regions.yml file for WorldGuard.
+* You will need to edit the file "*<LOCATIONOFOVERVIEWER>/web_assets/info.php*". The third line, where it says "*<serverdir>\plugins\WorldGuard\worlds\<worldname>\regions.yml*", replace that with the location of the regions.yml file for WorldGuard.
 
+MCWeather
+---------
+MCWeather displays current weather and the forcast with a count-down timer to when the next weather pattern will occure.
+
+**Setup Requirements :**
+
+* nbt.class.php needs to be placed in "*<LOCATIONOFOVERVIEWER>/web_assets*". You can download nbt.class.php from <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Look for the link to his Subversion repository and nbt.class.php should be listed there.
+
+* You will need to edit the file "*<LOCATIONOFOVERVIEWER>/web_assets/info.php*". The second line, where it says "*<serverDIR>/level.dat*", replace that with the location of the level.dat file of your minecraft world.
 
 Compiling the C Extension
 ------------------------- 
@@ -352,4 +364,6 @@ This is just my personal configuration of Overviewer and I decided to share it, 
 
 * Sundial and server time. Thanks to Sunkid for the sundial. https://github.com/sunkid/minecraft-sundial
 
-* WorldGuard overlay. Thanks to Pironic for WorldGuard2OverviewerRegion. https://github.com/pironic/WG2OvR
+* WorldGuard overlay. Thanks to Pironic for WorldGuard2OverviewerRegion. https://github.com/pironic/Minecraft-Overviewer-Addons/tree/master/WG2OvR
+
+* MCWeather. Thanks to Pironic for MCWeather. https://github.com/pironic/Minecraft-Overviewer-Addons/tree/master/mcweather

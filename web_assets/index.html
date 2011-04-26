@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="style.css" type="text/css" />
 <!--sundial--><link rel="stylesheet" href="sundial/sundial.css" type="text/css"/>
 <!--playerlist--><link rel="stylesheet" href="player_list/playerlist.css" type="text/css"/>
+<!--mcweather--><link rel="stylesheet" href="mcweather/mcweather.css" type="text/css"/>
 <!--External Scripts-->
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
@@ -16,6 +17,7 @@
 <script type="text/javascript" src="functions.js"></script>
 <!--sundial--><script type="text/javascript" src="sundial/sundial.js"></script>
 <!--WorldGuardRegions2Overviewer--><script type="text/javascript" src="wg_region/regions5.js.php"></script>
+<!--mcweather--><script type="text/javascript" src="mcweather/mcweather.js"></script>
 <!--mapmarkers--><script type="text/javascript" src="mapmarkers/player_markers.js"></script>
 <!--playerlist--><script type="text/javascript" src="player_list/playerlist.js"></script>
 <!--signs--><script type="text/javascript" src="markers.js"></script>
@@ -38,7 +40,14 @@
 		<hr />
 		<div id="Players"></div>
 	</div>
-<!--Playerlist end-->
+<!--Playerlist end, mcweather start-->
+    <div id="mcweather">
+        <div id="mcw">
+            <span id="mcwcurrent"></span>
+            <span id="mcwforecast"></span>
+        </div>
+    </div>
+<!--mcweather end-->
 <div id="timestamp">Map Generated at {time}</div>
 </body>
 </html>
