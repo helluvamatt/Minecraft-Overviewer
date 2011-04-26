@@ -34,11 +34,11 @@ function loadPlayerMarkers() {
 
         for (i in data) {
             var item = data[i];
-            var converted = fromWorldToLatLng(item.x, item.y, item.z);
+            var converted = overviewer.util.fromWorldToLatLng(item.x, item.y, item.z);
 			
-			var perPixel = 1.0 / (config.tileSize * Math.pow(2, config.maxZoom));
+			var perPixel = 1.0 / (overviewerConfig.CONST.tileSize * Math.pow(2, overviewerConfig.CONST.maxZoom));
 
-			var lng = 0.5 - (1.0 / Math.pow(2, config.maxZoom + 1));
+			var lng = 0.5 - (1.0 / Math.pow(2, overviewerConfig.CONST.maxZoom + 1));
 			var lat = 0.5;
 					
 			lng += 12 * item.x * perPixel;
