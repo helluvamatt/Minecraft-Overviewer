@@ -36,9 +36,9 @@ function loadPlayerMarkers() {
             var item = data[i];
             var converted = overviewer.util.fromWorldToLatLng(item.x, item.y, item.z);
 			
-			var perPixel = 1.0 / (overviewerConfig.CONST.tileSize * Math.pow(2, overviewerConfig.CONST.maxZoom));
+			var perPixel = 1.0 / (overviewerConfig.CONST.tileSize * Math.pow(2, overviewerConfig.map.maxZoom));
 
-			var lng = 0.5 - (1.0 / Math.pow(2, overviewerConfig.CONST.maxZoom + 1));
+			var lng = 0.5 - (1.0 / Math.pow(2, overviewerConfig.map.maxZoom + 1));
 			var lat = 0.5;
 					
 			lng += 12 * item.x * perPixel;
@@ -51,13 +51,14 @@ function loadPlayerMarkers() {
 
 			lng += 12 * perPixel;
 			lat += 18 * perPixel;
-			
-			PlayerNames.push('<!-- ' + item.msg.toLowerCase() + ' -->&nbsp;<a href="./index.html?lat=' + lat +'&lng=' + lng + '&zoom=6" target="_Top"><img src="player_list/head.php?player=' + item.msg + '&usage=list" border="0" /></a>&nbsp;' + item.msg + '<br /> ');
+
+
+			PlayerNames.push('<!-- ' + item.msg.toLowerCase() + ' -->&nbsp;<a onclick="overviewer.map.panTo(new google.maps.LatLng('+lat+', '+lng+'));"><img src="player_list/head.php?player=' + item.msg + '&usage=list" border="0" /></a>&nbsp;' + item.msg + '<br /> ');
 			PlayerCount++;
             
 			var marker = new google.maps.Marker({
                     position: converted,
-                    map: map,
+                    map: overviewer.map,
                     title: item.msg,
                     icon: 'player_list/head.php?player=' + item.msg + '&usage=marker'
             });
