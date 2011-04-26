@@ -55,11 +55,11 @@ FabianN's Additions
 
 * A timestamp of when the map was generated.
 
-* Sundial, current server time with a day/night graphic.
+* Sundial, current server time with a day/night graphic. *Requires Setup*
 
-* WorldGuard Region highlighting.
+* WorldGuard Region highlighting. *Requires Setup*
 
-* Minecraft weather display (current and forcast)
+* Minecraft weather display (current and forcast). *Requires Setup*
 
 Requirements
 ============
