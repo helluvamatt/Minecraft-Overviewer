@@ -147,7 +147,7 @@ Sundial displays the current time and a rotating image that reflects the sun/moo
 
 * nbt.class.php needs to be placed in "*<LOCATIONOFOVERVIEWER>/web_assets*". You can download nbt.class.php from <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Look for the link to his Subversion repository and nbt.class.php should be listed there.
 
-* You will need to edit the file "*<LOCATIONOFOVERVIEWER>/web_assets/info.php*". The second line, where it says "*<serverDIR>/level.dat*", replace that with the location of the level.dat file of your minecraft world.
+* You will need to edit the file "*<LOCATIONOFOVERVIEWER>/web_assets/sundial/getServerTime.php*". Where it says "*<serverDIR>/level.dat*", replace that with the location of the level.dat file of your minecraft world.
 
 
 WorldGuard2OverviewerRegion
@@ -156,7 +156,7 @@ WorldGuard displays regions defined in WorldGuard with an overlay.
 
 **Setup Requirements :**
 
-* You will need to edit the file "*<LOCATIONOFOVERVIEWER>/web_assets/info.php*". The third line, where it says "*<serverdir>\plugins\WorldGuard\worlds\<worldname>\regions.yml*", replace that with the location of the regions.yml file for WorldGuard.
+* You will need to edit the file "*<LOCATIONOFOVERVIEWER>/web_assets/wg_region/regions5.js.php*". Where it says "*<serverdir>\plugins\WorldGuard\worlds\<worldname>\regions.yml*", replace that with the location of the regions.yml file for WorldGuard.
 
 MCWeather
 ---------
@@ -166,7 +166,7 @@ MCWeather displays current weather and the forcast with a count-down timer to wh
 
 * nbt.class.php needs to be placed in "*<LOCATIONOFOVERVIEWER>/web_assets*". You can download nbt.class.php from <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Look for the link to his Subversion repository and nbt.class.php should be listed there.
 
-* You will need to edit the file "*<LOCATIONOFOVERVIEWER>/web_assets/info.php*". The second line, where it says "*<serverDIR>/level.dat*", replace that with the location of the level.dat file of your minecraft world.
+* You will need to edit the file "*<LOCATIONOFOVERVIEWER>/web_assets/mcweather/getServerWeather.php*". Where it says "*<serverDIR>/level.dat*", replace that with the location of the level.dat file of your minecraft world.
 
 Compiling the C Extension
 ------------------------- 
