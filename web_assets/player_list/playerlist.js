@@ -70,13 +70,13 @@ function loadPlayerMarkers() {
 
 		if(PlayerCount == 0)
 		{
-			$("#Players").html('&nbsp;<a href="#"><img src="player_list/home-list.png" border="0" /></a>&nbsp;<font color="lightgreen">' + PlayerCount + '</font> players online');
+			$("#Players").html('&nbsp;<font color="lightgreen">' + PlayerCount + '</font> players online');
 		}
 		else
 		{
 			PlayerNames.sort();
 			
-			$("#Players").html('&nbsp;<a href="#"><img src="player_list/home-list.png" border="0" /></a>&nbsp;<font color="lightgreen">' + PlayerCount + '</font> players online:<br /><br />' + PlayerNames.join(" "));
+			$("#Players").html('&nbsp;<font color="lightgreen">' + PlayerCount + '</font> players online:<br /><br />' + PlayerNames.join(" "));
 		}
 	});
 }
