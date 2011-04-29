@@ -26,5 +26,5 @@ c_overviewer.dylib
 *.sh
 *.bat
 
-# Sundial
+# Overviewer-Addons
 nbt.class.php
