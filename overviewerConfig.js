@@ -21,7 +21,7 @@ var overviewerConfig = {
             'mapType':  true,           //// The mapType control is the slider for selecting different map types.
             'link':     true            //// The small box at the bottom that displays the link to the current map view.
         },
-        'defaultZoom':  0,		/// The zoom level when the page is loaded without a specific zoom setting
+        'defaultZoom':  5,		/// The zoom level when the page is loaded without a specific zoom setting
         'minZoom':      {minzoom},      /// This controls how far you can zoom out.
         'maxZoom':      {maxzoom},      /// This controls how close you can zoom in.
         'center':       {spawn_coords}, /// Center on this point, in world coordinates. Should be an array, ex: [0,0,0]
@@ -72,7 +72,7 @@ var overviewerConfig = {
          *     checked : boolean.  Set to true to have the group visible by default
          */
         'regions': [
-            //{'label':'All','clickable':true,'match':function(region){return true;}}
+            {'label':'All','clickable':true,'match':function(region){return true;}}
         ]
     },
     /* mapTypes -- a list of alternate map renderings available. At least one
