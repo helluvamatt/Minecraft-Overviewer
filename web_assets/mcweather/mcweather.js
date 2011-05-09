@@ -179,7 +179,10 @@ $(document).ready(
             mcwStyleDiv.style.width = '140px';
             mcwStyleDiv.style.color = '#FFFFFF';
             mcwStyleDiv.style.fontFamily = "Arial,Sans-Serif";
-            mcwStyleDiv.style.fontSize = "11px";
+            mcwStyleDiv.style.fontSize = "14px";
+            mcwStyleDiv.style.background = "url(./mcweather/bg.png)";
+            mcwStyleDiv.style.border = 'solid 1px #FFF';
+            mcwStyleDiv.style.padding = '0px 3px 5px 3px';
 
             var mcwDiv = document.createElement("DIV");
             mcwDiv.id = "mcw";
