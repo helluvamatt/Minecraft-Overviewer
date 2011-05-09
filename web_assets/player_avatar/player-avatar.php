@@ -32,7 +32,7 @@ if ( ! empty($_GET['player'])) {
 }
 
 //use local default file instead of pulling from remote server.
-$default_player = 'char.png'; //http://minecraft.net/img/char.png
+$default_player = './char.png'; //http://minecraft.net/img/char.png
 
 if ( ! empty($_GET['s'])) {
     $s = (float)$_GET['s'];

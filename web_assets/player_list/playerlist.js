@@ -18,7 +18,7 @@ setInterval(loadPlayerMarkers, 1000 * 5);
 setTimeout(loadPlayerMarkers, 1000);
 
 function preparePlayerMarker(marker,item) {
-	var c = '<div class="infoWindow" style="width: 240px;" align="center"><img src="player_list/head.php?player=' + item.msg + '&usage=info"><font style="font-family:Arial; font-size:20px;"><b>' + item.msg + '</b></font></div>';
+	var c = '<div class="infoWindow" style="width: 240px;" align="center"><img src="player_avatar/player-avatar.php?player='+item.msg+'&s=1&bc=fff&bw=1&format=flat"><font style="font-family:Arial; font-size:20px;"><b>' + item.msg + '</b></font></div>';
 	var infowindow = new google.maps.InfoWindow({content: c});
 	google.maps.event.addListener(marker, 'click', function() {
 		infowindow.open(map,marker);
@@ -60,7 +60,7 @@ function loadPlayerMarkers() {
                     position: converted,
                     map: overviewer.map,
                     title: item.msg,
-                    icon: 'player_list/head.php?player=' + item.msg + '&usage=marker'
+                    icon: 'player_avatar/player-avatar.php?player='+item.msg+'&s=1&bc=fff&bw=1&format=flat'
             });
 			playerMarkers.push(marker);
 			preparePlayerMarker(marker, item);
