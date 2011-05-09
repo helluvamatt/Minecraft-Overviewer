@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * Player Avatars for brownan's Overviewer
  *
