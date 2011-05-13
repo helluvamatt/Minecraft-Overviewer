@@ -128,6 +128,7 @@ class MapGen(object):
         index = open(indexpath, 'r').read()
         index = index.replace(
                 "{time}", str(strftime("%a, %d %b %Y %I:%M:%S %p %Z", localtime())))
+        index = index.replace("{version}", util.findGitVersion())
 
         with open(os.path.join(self.destdir, "index.html"), 'w') as output:
             output.write(index)
