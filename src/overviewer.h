@@ -76,7 +76,7 @@ typedef struct {
     PyObject *left_blocks;
     PyObject *right_blocks;
 } RenderState;
-int init_chunk_render(void);
+PyObject *init_chunk_render(PyObject *self, PyObject *args);
 int is_transparent(unsigned char b);
 PyObject *chunk_render(PyObject *self, PyObject *args);
 
