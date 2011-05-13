@@ -23,7 +23,7 @@ var overviewer = {
         'mapTypes':     {},
         // The mapType names are in here.
         'mapTypeIds':   [],
-        / This is the current infoWindow object, we keep track of it so that there is only one open at a time.
+        // This is the current infoWindow object, we keep track of it so that there is only one open at a time.
         'infoWindow':   null
     },
     'util': {
