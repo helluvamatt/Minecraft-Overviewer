@@ -1,11 +1,7 @@
 var overviewer = {
-    /**
-     * This holds the map, probably the most important var in this file
-     */
+    //This holds the map, probably the most important var in this file
     'map': null,
-    /**
-     * These are collections of data used in various places
-     */
+    // These are collections of data used in various places
     'collections': {
         /**
          * A list of lists of raw marker data objects, this will allow for an
@@ -15,34 +11,19 @@ var overviewer = {
          * overviewer.collections.markerDatas.push([<your list of markers>]);
          */
         'markerDatas':  [],
-        /**
-         * The actual Marker objects are stored here.
-         */
+        // The actual Marker objects are stored here.
         'markers':      {},
-        /**
-         * Same as markerDatas, list of lists of raw region objects.
-         */
+        // Same as markerDatas, list of lists of raw region objects.
         'regionDatas':  [],
-        /**
-         * The actual Region objects.
-         */
+        // The actual Region objects.
         'regions':      {},
-        /**
-         * Overlay mapTypes (like Spawn) will go in here.
-         */
+        // Overlay mapTypes (like Spawn) will go in here.
         'overlays':     [],
-        /**
-         * MapTypes that aren't overlays will end up in here.
-         */
+        // MapTypes that aren't overlays will end up in here.
         'mapTypes':     {},
-        /**
-         * The mapType names are in here.
-         */
+        // The mapType names are in here.
         'mapTypeIds':   [],
-        /**
-         * This is the current infoWindow object, we keep track of it so that
-         * there is only one open at a time.
-         */
+        // This is the current infoWindow object, we keep track of it so that there is only one open at a time.
         'infoWindow':   null
     },
     'util': {
@@ -349,9 +330,7 @@ var overviewer = {
                 }
             }
         },
-        /**
-         * Same as initializeMarkers() for the most part.
-         */
+        // Same as initializeMarkers() for the most part.
         'initializeRegions': function() {
             for (i in overviewerConfig.objectGroups.regions) {
                 overviewer.collections.regions[overviewerConfig.objectGroups.regions[i].label] = [];
@@ -831,9 +810,7 @@ var overviewer = {
             overviewer.map.setZoom(zoom);
         },
     },
-    /**
-     * The various classes needed in this file.
-     */
+    // The various classes needed in this file.
     'classes': {
         /**
          * This is the button that centers the map on spawn. Not sure why we

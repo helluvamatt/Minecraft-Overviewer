@@ -1,6 +1,6 @@
-====================
-Minecraft Overviewer
-====================
+﻿========================================
+FabianN's Re-Packed Minecraft Overviewer
+﻿========================================
 By Andrew Brown and contributors (see CONTRIBUTORS.rst).
 
 http://github.com/brownan/Minecraft-Overviewer
@@ -18,6 +18,8 @@ http://github.com/brownan/Minecraft-Overviewer/wiki/Map-examples
 
 Further documentation may be found at
 https://github.com/brownan/Minecraft-Overviewer/wiki/Documentation
+
+Documentation for the add-ons to WorldGuard can be found in their respective directories under the web_assets directory.
 
 To contact the developers and other users, go to the site at the top of this
 README, or go to #overviewer on irc.freenode.net.
@@ -42,6 +44,23 @@ Features
 * Throw the output directory up on a web server to share your Minecraft world
   with everyone!
 
+FabianN's Additions
+-------------------
+
+* Built in MapMarkers for Bukkit <http://forums.bukkit.org/threads/mapmarkers-v0-2.843/> support.
+
+* The player's skin used for the player's mapmarker.
+
+* A list of currently online players which links you to the location of the player on the map.
+
+* A timestamp of when the map was generated.
+
+* Sundial, current server time with a day/night graphic. *Requires Setup*
+
+* WorldGuard Region highlighting. *Requires Setup*
+
+* Minecraft weather display (current and forcast). *Requires Setup*
+
 Requirements
 ============
 This program requires:
@@ -52,6 +71,9 @@ This program requires:
 * Either the Minecraft client installed, or a terrain.png file. See the
   `Textures`_ section below.
 * A C compiler.
+* Bukkit's MapMarkers plugin <http://forums.bukkit.org/threads/mapmarkers-v0-2.843/>
+* nbt.class.php by Justin Martian available at <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Place in either the web_assets folder or in the web directory for the map, same location as index.html.
+* WorldGuard Plugin <http://forums.bukkit.org/threads/sec-worldguard-5-0-alpha9-multi-world-fire-and-polygonal-cuboid-region-protection-with-blacklist.790/>
 
 If you download a binary package, then some or all of these may not be required.
 
@@ -110,6 +132,41 @@ If the "biomes" folder is present in the world directory, then the Overviewer
 will use the biome data to tint grass and leaves automatically -- there is no
 command line option to turn this feature on.  If this folder does not exist,
 then the Overviewer will use a static tinting for grass and leaves.
+
+MapMarker
+---------
+MapMarkers support has been integrated into Overviewer. For MapMarkers to work you need to have the MapMarkers Bukkit plugin installed which can be downloaded here: http://forums.bukkit.org/threads/mapmarkers-v0-2.843/
+
+Edit the MapMarker's config file to output the file to "*<LOCATIONOFMAP>/mapmarkers/markers.json*"
+
+Sundial
+-------
+Sundial displays the current time and a rotating image that reflects the sun/moon.
+
+**Setup Requirements :**
+
+* nbt.class.php needs to be placed in "*<LOCATIONOFOVERVIEWER>/web_assets*". You can download nbt.class.php from <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Look for the link to his Subversion repository and nbt.class.php should be listed there.
+
+* You will need to edit the file "*<LOCATIONOFOVERVIEWER>/web_assets/sundial/getServerTime.php*". Where it says "*<serverDIR>/level.dat*", replace that with the location of the level.dat file of your minecraft world.
+
+
+WorldGuard2OverviewerRegion
+---------------------------
+WorldGuard displays regions defined in WorldGuard with an overlay.
+
+**Setup Requirements :**
+
+* You will need to edit the file "*<LOCATIONOFOVERVIEWER>/web_assets/wg_region/regions5.js.php*". Where it says "*<serverdir>\plugins\WorldGuard\worlds\<worldname>\regions.yml*", replace that with the location of the regions.yml file for WorldGuard.
+
+MCWeather
+---------
+MCWeather displays current weather and the forcast with a count-down timer to when the next weather pattern will occure.
+
+**Setup Requirements :**
+
+* nbt.class.php needs to be placed in "*<LOCATIONOFOVERVIEWER>/web_assets*". You can download nbt.class.php from <http://thefrozenfire.com/2010/12/nbt-decoderencoder-for-php/>. Look for the link to his Subversion repository and nbt.class.php should be listed there.
+
+* You will need to edit the file "*<LOCATIONOFOVERVIEWER>/web_assets/mcweather/getServerWeather.php*". Where it says "*<serverDIR>/level.dat*", replace that with the location of the level.dat file of your minecraft world.
 
 Compiling the C Extension
 ------------------------- 
@@ -315,3 +372,17 @@ An incomplete list of things I want to do soon is:
 
 * Some kind of graphical interface.
 
+
+Changes by FabianN
+------------------
+This is just my personal configuration of Overviewer and I decided to share it, maybe make it easier for someone to host their own map with MapMarkers integration and many other great additions. My additions would not be possible without the work of others who created many of these components (I just put it all together). Here the pieces of code from others that I have intergrated with my package of Overviewer:
+
+* The user's skin showing up as their icon on the map. Thanks to ethzero/Billiam for the Player-Avatar add-on. https://github.com/Billiam/Minecraft-Overviewer-Addons
+
+* The Online Players list. Thanks to datLicht for the player list. http://forums.bukkit.org/threads/mapmarkers-v0-2.843/page-2#post-37817
+
+* Sundial and server time. Thanks to Sunkid for the sundial. https://github.com/sunkid/minecraft-sundial
+
+* WorldGuard overlay. Thanks to Pironic for WorldGuard2OverviewerRegion. https://github.com/pironic/Minecraft-Overviewer-Addons/tree/master/WG2OvR
+
+* MCWeather. Thanks to Pironic for MCWeather. https://github.com/pironic/Minecraft-Overviewer-Addons/tree/master/mcweather

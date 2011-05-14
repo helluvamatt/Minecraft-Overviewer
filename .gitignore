@@ -25,3 +25,6 @@ c_overviewer.dylib
 #Script files, as users may want their own scripts.
 *.sh
 *.bat
+
+# Overviewer-Addons
+nbt.class.php

@@ -1,17 +1,8 @@
 var overviewerConfig = {
-    /**
-     * These are things that will probably not need to be changed by the user,
-     * but are there because otherwise changing them is a giant PITA.
-     */
+    //These are things that will probably not need to be changed by the user, but are there because otherwise changing them is a giant PITA.
     'CONST': {
-        /**
-         * Height and width of the tiles in pixels (I think).
-         */
-        'tileSize':             384,
-        /**
-         * Various images used for markers and stuff.
-         */
-        'image': {
+        'tileSize': 384,   		// Height and width of the tiles in pixels (I think).
+        'image': {        		// Various images used for markers and stuff.
             'defaultMarker':    'signpost.png',
             'signMarker':       'signpost_icon.png',
             'compass':          'compass.png',
@@ -21,71 +12,23 @@ var overviewerConfig = {
         'mapDivId':             'mcmap',
         'regionStrokeWeight':   2
     },
-    /**
-     * General map settings.
-     */
-    'map': {
-        /**
-         * Control the visibility of various controls.
-         */
-        'controls': {
-            /**
-             * Pan control is the hand with the arrows around it in the upper left.
-             */
-            'pan':      true,
-            /**
-             * Zoom control is the zoom slider bar in the upper left.
-             */
-            'zoom':     true,
-            /**
-             * Spawn control is the "Spawn" button that centers the map on spawn.
-             */
-            'spawn':    true,
-            /**
-             * The compass in the upper right.
-             */
-            'compass':  true,
-            /**
-             * The mapType control is the slider for selecting different map types.
-             */
-            'mapType':  true,
-            /**
-             * The small box at the bottom that displays the link to the current map view.
-             */
-            'link':     true
+    'map': {    			// General map settings.
+        'controls': {      		/// Control the visibility of various controls.
+            'pan':      true,           //// Pan control is the hand with the arrows around it in the upper left.
+            'zoom':     true,           //// Zoom control is the zoom slider bar in the upper left.
+            'spawn':    true,           //// Spawn control is the "Spawn" button that centers the map on spawn.
+            'compass':  true,           //// The compass in the upper right.
+            'mapType':  true,           //// The mapType control is the slider for selecting different map types.
+            'link':     true            //// The small box at the bottom that displays the link to the current map view.
         },
-        /**
-         * The zoom level when the page is loaded without a specific zoom setting
-         */
-        'defaultZoom':  0,
-        /**
-         * This controls how far you can zoom out.
-         */
-        'minZoom':      {minzoom},
-        /**
-         * This controls how close you can zoom in.
-         */
-        'maxZoom':      {maxzoom},
-        /**
-         * Center on this point, in world coordinates. Should be an array, ex:
-         * [0,0,0]
-         */
-        'center':       {spawn_coords},
-        /**
-         * Set this to tell browsers how long they should cache tiles in minutes.
-         */
-        'cacheMinutes': 0,
-        /**
-         * Set to true to turn on debug mode, which adds a grid to the map along
-         * with co-ordinates and a bunch of console output.
-         */
-        'debug':        false,
+        'defaultZoom':  5,		/// The zoom level when the page is loaded without a specific zoom setting
+        'minZoom':      {minzoom},      /// This controls how far you can zoom out.
+        'maxZoom':      {maxzoom},      /// This controls how close you can zoom in.
+        'center':       {spawn_coords}, /// Center on this point, in world coordinates. Should be an array, ex: [0,0,0]
+        'cacheMinutes': 0,        	/// Set this to tell browsers how long they should cache tiles in minutes.
+        'debug':        false,       	/// Set to true to turn on debug mode, which adds a grid to the map along with co-ordinates and a bunch of console output.
     },
-    /**
-     * Group definitions for objects that are partially selectable (signs and
-     * regions).
-     */
-    'objectGroups': {
+    'objectGroups': {		 	// Group definitions for objects that are partially selectable (signs and regions).
         /* signs -- A list of signpost groups.  A signpost can fall into zero,
          * one, or more than one group.  See below for some examples.
          *
@@ -129,7 +72,7 @@ var overviewerConfig = {
          *     checked : boolean.  Set to true to have the group visible by default
          */
         'regions': [
-            //{'label':'All','clickable':true,'match':function(region){return true;}}
+            {'label':'All','clickable':true,'match':function(region){return true;}}
         ]
     },
     /* mapTypes -- a list of alternate map renderings available. At least one
