@@ -39,6 +39,7 @@ var overviewer = {
             overviewer.util.initializeMarkers();
             overviewer.util.initializeRegions();
             overviewer.util.createMapControls();
+			chattercraft.init();
         },
         /**
          * This adds some methods to these classes because Javascript is stupid
