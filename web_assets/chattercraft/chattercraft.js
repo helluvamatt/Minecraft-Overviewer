@@ -5,6 +5,7 @@ var chattercraft = {
 	'msg_timeout': null,
 	'last': 0,
 	'username': "",
+	'show_player_markers': false, // Show player location markers
 	'player_markers': [],
 	'perform_query': function() {
 		$.ajax({
@@ -12,66 +13,71 @@ var chattercraft = {
 			url: "chattercraft/chatter.php",
 			data: {"last": chattercraft.last, "user": chattercraft.username},
 			success: function(xmldata) {
-
+				
 				// Handle XML Data
 				var data = $(xmldata);
 				var players = data.find('player');
 				var wwwusers = data.find('user');
 				var chatter = data.find('chatter');
-		//ChatterCraft PlayerMarkers have been disabled because they conflict with the current player
-		//markers in use and are just not quite as awsome. ;P I've left the code in incase someone wants to switch.
-		//Just uncomment the two sections below  -FabianN
-
-
-				// UPDATING PLAYER LOCATION MARKERS
-				// 1. For Each Marker - Check if it is still needed
-			/*	for (var i in chattercraft.player_markers) {
-					var p = players.filter(function(j) {
-						return $(this).text() == i;
+				
+				if (chattercraft.show_player_markers) {
+					// UPDATING PLAYER LOCATION MARKERS
+					// 1. For Each Marker - Check if it is still needed
+					for (var i in chattercraft.player_markers) {
+						var p = players.filter(function(j) {
+							return $(this).text() == i;
+						});
+						if (p.length != 1) {
+							// 1a. If not delete
+							if (chattercraft.player_markers[i] != undefined) {
+								chattercraft.player_markers[i].setMap(null);
+								chattercraft.player_markers[i] = undefined;
+							}
+						} else {
+							// 1b. Otherwise, update location
+							var new_loc = overviewer.util.fromWorldToLatLng(parseFloat(p.attr('x')), parseFloat(p.attr('y')), parseFloat(p.attr('z')));
+							var old_loc = player_markers[i].getPosition();
+							if (new_loc.lat() != old_loc.lat() || new_loc.lng() != old_loc.lng()) {
+								chattercraft.player_markers[i].setPosition(new_loc);
+							}
+						}
+					}
+					
+					// 2. Add new markers for new players
+					players.each(function(i, e) {
+						var p = $(e);
+						if (chattercraft.player_markers[p.text()] == undefined) {
+							// TODO Use this: (maybe) player_avatar/player-avatar.php?player="+p.text()+"&s=1&bc=fff&bw=1&format=flat
+							var image = new google.maps.MarkerImage("chattercraft/hiking-tourism.png",
+								new google.maps.Size(32.0, 37.0),
+								new google.maps.Point(0, 0),
+								new google.maps.Point(16.0, 37.0)
+							);
+							
+							// TODO Make a shadow image
+							var shadow = new google.maps.MarkerImage("chattercraft/shadow-hiking-tourism.png",
+								new google.maps.Size(51.0, 37.0),
+								new google.maps.Point(0, 0),
+								new google.maps.Point(16.0, 37.0)
+							);
+							
+							chattercraft.player_markers[i] = new google.maps.Marker();
+							chattercraft.player_markers[i].setTitle(p.text());
+							chattercraft.player_markers[i].setIcon(image);
+							chattercraft.player_markers[i].setShadow(shadow);
+							chattercraft.player_markers[i].setPosition(overviewer.util.fromWorldToLatLng(parseFloat(p.attr('x')), parseFloat(p.attr('y')), parseFloat(p.attr('z'))));
+							chattercraft.player_markers[i].setMap(overviewer.map);
+						}
 					});
-					if (p.length != 1) {
-						// 1a. If not delete
+				} else {
+					for ( var i in chattercraft.player_markers) {
 						if (chattercraft.player_markers[i] != undefined) {
 							chattercraft.player_markers[i].setMap(null);
 							chattercraft.player_markers[i] = undefined;
 						}
-					} else {
-						// 1b. Otherwise, update location
-						var new_loc = overviewer.util.fromWorldToLatLng(parseFloat(p.attr('x')), parseFloat(p.attr('y')), parseFloat(p.attr('z')));
-						var old_loc = player_markers[i].getPosition();
-						if (new_loc.lat() != old_loc.lat() || new_loc.lng() != old_loc.lng()) {
-							chattercraft.player_markers[i].setPosition(new_loc);
-						}
 					}
-				}	*/
-
-				// 2. Add new markers for new players
-			/*	players.each(function(i, e) {
-					var p = $(e);
-					if (chattercraft.player_markers[p.text()] == undefined) {
-						// TODO Use this: (maybe) player_avatar/player-avatar.php?player="+p.text()+"&s=1&bc=fff&bw=1&format=flat
-						var image = new google.maps.MarkerImage("chattercraft/hiking-tourism.png",
-							new google.maps.Size(32.0, 37.0),
-							new google.maps.Point(0, 0),
-							new google.maps.Point(16.0, 37.0)
-						);
-
-						// TODO Make a shadow image
-						var shadow = new google.maps.MarkerImage("chattercraft/shadow-hiking-tourism.png",
-							new google.maps.Size(51.0, 37.0),
-							new google.maps.Point(0, 0),
-							new google.maps.Point(16.0, 37.0)
-						);
-
-						chattercraft.player_markers[i] = new google.maps.Marker();
-						chattercraft.player_markers[i].setTitle(p.text());
-						chattercraft.player_markers[i].setIcon(image);
-						chattercraft.player_markers[i].setShadow(shadow);
-						chattercraft.player_markers[i].setPosition(overviewer.util.fromWorldToLatLng(parseFloat(p.attr('x')), parseFloat(p.attr('y')), parseFloat(p.attr('z'))));
-						chattercraft.player_markers[i].setMap(overviewer.map);
-					}
-				});	*/
-
+				}
+				
 				// Chat stuff
 				if (chatter.length > 0) {
 					chattercraft.last = chatter.attr('now');
@@ -84,7 +90,7 @@ var chattercraft = {
 						$('#chattercraft_messages').attr({scrollTop: $("#chattercraft_messages").attr("scrollHeight") - $('#chattercraft_messages').height()});
 					}
 				}
-
+				
 				// Chat User List
 				var userlisthtml = '';
 				// INGAME players
@@ -106,7 +112,7 @@ var chattercraft = {
 					userlisthtml += '<div class="userlist generic">No WWW Portal users.</div>';
 				}
 				$('#chattercraft_userlist').html(userlisthtml);
-
+				
 				// Error handling
 				var errors = data.find('error');
 				if (errors.length > 0) {
@@ -127,7 +133,7 @@ var chattercraft = {
 		$('#chattercraft_status_message').slideDown('fast', function() {chattercraft.update_heights();});
 		chattercraft.msg_timeout = window.setTimeout(chattercraft.hide_message, 5000);
 	},
-
+	
 	'hide_message': function() {
 		$('#chattercraft_status_message').slideUp('fast', function() {
 			$('#chattercraft_status_message').text('');
@@ -136,7 +142,7 @@ var chattercraft = {
 			chattercraft.update_heights();
 		});
 	},
-
+	
 	'set_username': function() {
 		chattercraft.username = $('#chattercraft_username_field').val();
 		$.ajax({
@@ -159,7 +165,7 @@ var chattercraft = {
 			}
 		});
 	},
-
+	
 	'send_message': function() {
 		$.ajax({
 			type: "POST",
@@ -183,14 +189,14 @@ var chattercraft = {
 			}
 		});
 	},
-
+	
 	'update_heights': function() {
 		$('#chattercraft_messages').css('max-height', $('#chattercraft_chatwin').height() - $('#chattercraft_status_message').height()- 1);
 		$('#chattercraft_userlist').css('height', $('#chattercraft_chatwin').height() - $('#chattercraft_status_message').height() - 6);
 	},
-
+	
 	'init': function() {
-
+		
 		// Register onresize event
 		$(window).bind('resize', chattercraft.update_heights);
 
@@ -212,7 +218,7 @@ var chattercraft = {
 
 		// Query for messages every one second
 		chattercraft.interval = window.setInterval(chattercraft.perform_query, 1000);
-
+		
 		// Add a custom control for toggling chat
 		var chatControlContainer = $('<div id="chatControlContainer" class="control-container" title=\"Chat with players!\"></div>');
 		var chatControl          = $('<div id="chatControl" class="control"></div>');
