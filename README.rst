@@ -47,11 +47,13 @@ Features
 FabianN's Additions
 -------------------
 
-* Built in MapMarkers for Bukkit <http://forums.bukkit.org/threads/mapmarkers-v0-2.843/> support.
+* Built in MapMarkers for Bukkit <http://forums.bukkit.org/threads/843> support. *Requires Setup*
 
-* The player's skin used for the player's mapmarker.
+* Built in ChatterCraft for Bukkit <http://forums.bukkit.org/threads/16448> support. Added thanks to helluvamatt. *Requires Setup*
 
-* A list of currently online players which links you to the location of the player on the map.
+* The player's skin used for the player's mapmarker. *Requires MapMarkers to be Setup*
+
+* A list of currently online players which links you to the location of the player on the map. *Requires MapMarkers to be Setup*
 
 * A timestamp of when the map was generated.
 
@@ -135,9 +137,13 @@ then the Overviewer will use a static tinting for grass and leaves.
 
 MapMarker
 ---------
-MapMarkers support has been integrated into Overviewer. For MapMarkers to work you need to have the MapMarkers Bukkit plugin installed which can be downloaded here: http://forums.bukkit.org/threads/mapmarkers-v0-2.843/
+MapMarkers support has been integrated into Overviewer. For MapMarkers to work you need to have the MapMarkers Bukkit plugin installed which can be downloaded here: http://forums.bukkit.org/threads/843
 
 Edit the MapMarker's config file to output the file to "*<LOCATIONOFMAP>/mapmarkers/markers.json*"
+
+ChatterCraft
+------------
+ChatterCraft support has been intergrated into Overviewer. For ChatterCraft to work you need to have the ChatterCraft Bukkit plugin installed which can be downloaded here: http://forums.bukkit.org/threads/16448
 
 Sundial
 -------
