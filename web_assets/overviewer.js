@@ -39,7 +39,7 @@ var overviewer = {
             overviewer.util.initializeMarkers();
             overviewer.util.initializeRegions();
             overviewer.util.createMapControls();
-			chattercraft.init();
+            chattercraft.init();
         },
         /**
          * This adds some methods to these classes because Javascript is stupid
@@ -67,7 +67,7 @@ var overviewer = {
                 //will add the maptile url to the grid thing once it works
 
                 //div.innerHTML += overviewer.collections.mapTypes[0].getTileUrl(coord, zoom);
-                
+
                 //this should probably just have a css class
                 div.style.width = this.tileSize.width + 'px';
                 div.style.height = this.tileSize.height + 'px';
@@ -208,20 +208,20 @@ var overviewer = {
                     overviewer.collections.mapTypes[i].name,
                     overviewer.collections.mapTypes[i]);
             }
-			
+
 			// Jump to the hash if given
             overviewer.util.initHash();
-			
+
 			// Add live hash update listeners
 			// Note: It is important to add them after jumping to the hash
             google.maps.event.addListener(overviewer.map, 'dragend', function() {
                 overviewer.util.updateHash();
             });
-			
+
             google.maps.event.addListener(overviewer.map, 'zoom_changed', function() {
                 overviewer.util.updateHash();
             });
-			
+
 			// Make the link again whenever the map changes
             google.maps.event.addListener(overviewer.map, 'maptypeid_changed', function() {
                 $('#'+overviewerConfig.CONST.mapDivId).css(
@@ -251,7 +251,7 @@ var overviewer = {
                     var item = markerData[j];
                     // a default:
                     var iconURL = '';
-                    if (item.type == 'spawn') { 
+                    if (item.type == 'spawn') {
                         // don't filter spawn, always display
                         var marker = new google.maps.Marker({
                             'position': overviewer.util.fromWorldToLatLng(item.x,
@@ -263,7 +263,7 @@ var overviewer = {
                         continue;
                     }
 
-                    if (item.type == 'querypos') { 
+                    if (item.type == 'querypos') {
                         // Set on page load if MC x/y/z coords are given in the
                         // query string
                         var marker = new google.maps.Marker({
@@ -295,7 +295,7 @@ var overviewer = {
                                 'position': overviewer.util.fromWorldToLatLng(item.x,
                                     item.y, item.z),
                                 'map':      overviewer.map,
-                                'title':    jQuery.trim(item.msg), 
+                                'title':    jQuery.trim(item.msg),
                                 'icon':     iconURL,
                                 'visible':  false
                             });
@@ -317,7 +317,7 @@ var overviewer = {
                             'position': overviewer.util.fromWorldToLatLng(item.x,
                                 item.y, item.z),
                             'map':      overviewer.map,
-                            'title':    jQuery.trim(item.msg), 
+                            'title':    jQuery.trim(item.msg),
                             'icon':     iconURL,
                             'visible':  false
                         });
@@ -397,7 +397,7 @@ var overviewer = {
                                     'path':             converted
                                 });
                         }
-                        overviewer.collections.regions[label].push(shape); 
+                        overviewer.collections.regions[label].push(shape);
 
                         if (clickable) {
                             overviewer.util.createRegionInfoWindow(shape);
@@ -424,7 +424,7 @@ var overviewer = {
         },
         /**
          * Gee, I wonder what this does.
-         * 
+         *
          * @param string msg
          */
         'debug': function(msg) {
@@ -435,7 +435,7 @@ var overviewer = {
         /**
          * Simple helper function to split the query string into key/value
          * pairs. Doesn't do any type conversion but both are lowercase'd.
-         * 
+         *
          * @return Object
          */
         'parseQueryString': function() {
@@ -459,11 +459,11 @@ var overviewer = {
          * X, Y, Z order (arguments are *out of order*, because within the
          * function we use the axes like the rest of Minecraft Overviewer --
          * with the Z and Y flipped from normal minecraft usage.)
-         * 
+         *
          * @param int x
          * @param int z
          * @param int y
-         * 
+         *
          * @return google.maps.LatLng
          */
         'fromWorldToLatLng': function(x, z, y) {
@@ -506,10 +506,10 @@ var overviewer = {
          * The opposite of fromWorldToLatLng
          * NOTE: X, Y and Z in this function are Minecraft world definitions
          * (that is, X is horizontal, Y is altitude and Z is vertical).
-         * 
+         *
          * @param float lat
          * @param float lng
-         * 
+         *
          * @return Array
          */
         'fromLatLngToWorld': function(lat, lng) {
@@ -564,7 +564,7 @@ var overviewer = {
 
             // Spawn button
             var homeControlDiv = document.createElement('DIV');
-            var homeControl = new overviewer.classes.HomeControl(homeControlDiv);  
+            var homeControl = new overviewer.classes.HomeControl(homeControlDiv);
             homeControlDiv.id = 'customControl';
             homeControlDiv.index = 1;
             if (overviewerConfig.map.controls.spawn) {
@@ -583,7 +583,7 @@ var overviewer = {
                         iconURL = overviewerConfig.CONST.image.defaultMarker;
                     }
                     items.push({
-                        'label': signGroup.label, 
+                        'label': signGroup.label,
                         'checked': signGroup.checked,
                         'icon': iconURL,
                         'action': function(n, item, checked) {
@@ -606,7 +606,7 @@ var overviewer = {
                 for (i in overviewerConfig.objectGroups.regions) {
                     var regionGroup = overviewerConfig.objectGroups.regions[i];
                     items.push({
-                        'label': regionGroup.label, 
+                        'label': regionGroup.label,
                         'checked': regionGroup.checked,
                         'action': function(n, item, checked) {
                             jQuery.each(overviewer.collections.regions[item.label],
@@ -653,7 +653,7 @@ var overviewer = {
         },
         /**
          * Reusable method for creating drop-down menus
-         * 
+         *
          * @param string title
          * @param array items
          */
@@ -708,7 +708,7 @@ var overviewer = {
                 itemDiv.appendChild(itemInput);
                 var textNode = document.createElement('text');
                 if(item.icon) {
-                    textNode.innerHTML = '<img width="15" height="15" src="' + 
+                    textNode.innerHTML = '<img width="15" height="15" src="' +
                         item.icon + '">' + item.label + '<br/>';
                 } else {
                     textNode.innerHTML = item.label + '<br/>';
@@ -721,7 +721,7 @@ var overviewer = {
          * Create the pop-up infobox for when you click on a region, this can't
          * be done in-line because of stupid Javascript scoping problems with
          * closures or something.
-         * 
+         *
          * @param google.maps.Polygon|google.maps.Polyline shape
          */
         'createRegionInfoWindow': function(shape) {
@@ -744,7 +744,7 @@ var overviewer = {
         },
         /**
          * Same as createRegionInfoWindow()
-         * 
+         *
          * @param google.maps.Marker marker
          */
         'createMarkerInfoWindow': function(marker) {
@@ -766,7 +766,7 @@ var overviewer = {
                 overviewer.util.goToHash();
 				// Clean up the hash.
 				overviewer.util.updateHash();
-                
+
                 // Add a marker indicating the user-supplied position
                 var coordinates = overviewer.util.fromLatLngToWorld(overviewer.map.getCenter().lat(), overviewer.map.getCenter().lng());
                 overviewer.collections.markerDatas.push([{
@@ -775,7 +775,7 @@ var overviewer = {
                     'y': coordinates.y,
                     'z': coordinates.z,
                     'type': 'querypos'}]);
-            }	
+            }
         },
         'setHash': function(x, y, z, zoom, maptype)    {
             window.location.replace("#/" + Math.floor(x) + "/" + Math.floor(y) + "/" + Math.floor(z) + "/" + zoom + "/" + maptype);
@@ -807,7 +807,7 @@ var overviewer = {
 			if (coords.length > 5) {
 				maptype = coords[5];
 			}
-			
+
             if (zoom == 'max') {
                 zoom = overviewerConfig.map.maxZoom;
             } else if (zoom == 'min') {
@@ -829,7 +829,7 @@ var overviewer = {
 			} else {
 				overviewer.map.setMapTypeId(maptype);
 			}
-			
+
             overviewer.map.setCenter(latlngcoords);
             overviewer.map.setZoom(zoom);
         },
@@ -839,7 +839,7 @@ var overviewer = {
         /**
          * This is the button that centers the map on spawn. Not sure why we
          * need a separate class for this and not some of the other controls.
-         * 
+         *
          * @param documentElement controlDiv
          */
         'HomeControl': function(controlDiv) {
@@ -880,7 +880,7 @@ var overviewer = {
          * This is a mapType used only for debugging, to draw a grid on the screen
          * showing the tile co-ordinates and tile path. Currently the tile path
          * part does not work.
-         * 
+         *
          * @param google.maps.Size tileSize
          */
         'CoordMapType': function(tileSize) {
@@ -890,7 +890,7 @@ var overviewer = {
     /**
      * Stuff that we give to the google maps code instead of using ourselves
      * goes in here.
-     * 
+     *
      * Also, why do I keep writing these comments as if I'm multiple people? I
      * should probably stop that.
      */
@@ -898,7 +898,7 @@ var overviewer = {
         /**
          * Generate a function to get the path to a tile at a particular location
          * and zoom level.
-         * 
+         *
          * @param string path
          * @param string pathBase
          * @param string pathExt
