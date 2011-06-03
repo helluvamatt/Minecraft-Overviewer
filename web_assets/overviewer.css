@@ -64,8 +64,8 @@ body {
 /* time-stamp */
 #timestamp {
 	position: absolute;
-	bottom: 20px;
-	right: 5px;
+	bottom: 10px;
+	right: 70px;
 	padding-left: 2px;
 	padding-right: 3px;
 	background-image: url(./timebg.png);
