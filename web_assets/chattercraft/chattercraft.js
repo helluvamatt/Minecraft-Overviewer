@@ -1,4 +1,4 @@
-// ChatterCraft Unified JavaScript
+﻿// ChatterCraft Unified JavaScript
 var chattercraft = {
 
 	'interval': null,

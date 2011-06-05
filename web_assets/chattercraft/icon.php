@@ -5,7 +5,7 @@
 
 header('Content-type: image/png');
 
-$player = isset($_REQUEST['player']) ? $_REQUEST['player'] : null;
+$player = isset($_REQUEST['player']) ? $_REQUEST['player'] : NULL;
 $usage =  isset($_REQUEST['usage'])  ? $_REQUEST['usage']  : 'marker';
 
 function create_blank($w, $h)
@@ -20,7 +20,7 @@ function create_blank($w, $h)
 function load_player_skin($imgname)
 {
 	/* Attempt to open */
-	if ($imgname != null) {
+	if ($imgname != NULL) {
 		$im = @imagecreatefrompng($imgname);
 	}
 
