@@ -1,0 +1,21 @@
+/*
+ * Waypoints - Web Frontend - Stylesheet
+ * Matt Schneeberger (helluvamatt@gmail.com)
+ *
+ * Stylesheet for placing waypoints on the Minecraft Overviewer map.
+ *
+ */
+
+div.waypointInfoWindowContainer {
+	display: block;
+}
+
+div.waypointInfoWindowText {
+	display: inline-block;
+	font-family: Verdana, sans-serif;
+}
+
+img.waypointInfoWindowImage {
+	float: left;
+}
+ 
