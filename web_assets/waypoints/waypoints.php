@@ -12,11 +12,11 @@
  */
 // To Use MySQL:
 $db['dbms'] = "mysql";
-$db['server'] = "localhost";			// MySQL Server
-$db['port'] = 3306;						// MySQL Port
-$db['database'] = "minecraft";			// Database Name
-$db['username'] = "minecraft";			// Database User
-$db['password'] = "YKF4XAHCqDKzjqsb";	// Database Password
+$db['server'] = "localhost";	// MySQL Server
+$db['port'] = 3306;		// MySQL Port
+$db['database'] = "<dbname>";	// Database Name
+$db['username'] = "<dbuser>";	// Database User
+$db['password'] = "<dbpass>";	// Database Password
 
 // To Use SQLite:
 //$db['dbms'] = "sqlite";
