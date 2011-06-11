@@ -5,7 +5,8 @@ PURPOSE
 	
 INSTALLATION
 	1. Put MapMarkers.jar in your plugins folder
-	2. Put MapMarkers.yml where craftbukkit.jar is
+	2. Run your server once to generate a config file
+	3. Edit plugins/MapMarkers/config.yml to your liking
 	
 SETUP FOR MINECRAFT OVERVIEWER (Courtesy of FlukiestEmperor)
 	0. Perform installation (see above)
@@ -14,6 +15,7 @@ SETUP FOR MINECRAFT OVERVIEWER (Courtesy of FlukiestEmperor)
 			ln -s path/to/minecraft/server/bin/world/markers.json path/to/minecraft/map/markers.json
 	2. Put player.png, player.php, and player_markers.js where the overviewer index.html is. (Optionally web_assets in your overviewer source directory)
 		If you don't want to use player skins as the markers (requires PHP, allow_url_fopen, and ideally write permissions by your PHP user), copy player_markers_noskin.js and rename it to player_markers.js
+		If you're using an older version of overviewer, you might need to use player_markers_old.js or player_markers_noskin_old.js. Make sure that you still rename the file to player_markers.js
 	3. Add a line to your source overviewer index.html that reads:
 		<script type="text/javascript" src="player_markers.js"></script>
 	4. Run overviewer and everything should work
@@ -25,6 +27,7 @@ SETUP FOR PIGMAP
 			ln -s path/to/minecraft/server/bin/world/markers.json path/to/minecraft/map/markers.json
 	2. Put player.png, player.php, and player_markers.js where the pigmap HTML is.
 		If you don't want to use player skins as the markers (which requires PHP, allow_url_fopen, and ideally write permissions by your PHP user), copy player_markers_noskin.js and rename it to player_markers.js
+		Depending on your fork of pigmap, you might need to use player_markers_old.js or player_markers_noskin_old.js. Make sure that you still rename the file to player_markers.js
 	3. Add two lines to your source template.html that reads:
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script> 
 		<script type="text/javascript" src="player_markers.js"></script>

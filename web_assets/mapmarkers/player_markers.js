@@ -17,7 +17,7 @@ function preparePlayerMarker(marker,item) {
 	var c = "<div class=\"infoWindow\" style='width: 300px'><img src='player_avatar/player-avatar.php?player="+item.msg+"&s=3&bc=000&bw=1&format=flat'/><h1>"+item.msg+"</h1></div>";
 	var infowindow = new google.maps.InfoWindow({content: c});
 	google.maps.event.addListener(marker, 'click', function() {
-		infowindow.open(map,marker);
+		infowindow.open(overviewer.map,marker);
 	});
 }
 
@@ -28,10 +28,10 @@ function loadPlayerMarkers() {
 		for (i in data) {
 			var item = data[i];
 			if(item.id != 4) continue;
-			var converted = fromWorldToLatLng(item.x, item.y, item.z);
+			var converted = overviewer.util.fromWorldToLatLng(item.x, item.y, item.z);
 			var marker =  new google.maps.Marker({
 				position: converted,
-				map: map,
+				map: overviewer.map,
 				title: item.msg,
 				icon: 'player_avatar/player-avatar.php?player='+item.msg+'&s=1&bc=fff&bw=1&format=flat',
 				visible: true,
