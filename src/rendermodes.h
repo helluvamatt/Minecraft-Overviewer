@@ -163,4 +163,5 @@ typedef struct {
 } RenderModeMineral;
 extern RenderModeInterface rendermode_mineral;
 
+
 #endif /* __RENDERMODES_H_INCLUDED__ */

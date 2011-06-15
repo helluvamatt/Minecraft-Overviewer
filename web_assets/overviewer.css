@@ -22,14 +22,12 @@ body {
     text-align: center;
     font-family: monospace;
 }
-
 .customControl {
     padding: 5px;
     height: 15px;
     color: black;
     font-family: Arial, sans-serif;
 }
-
 .customControl > div.top {
     font-size: 12px;
     line-height: 160%;
@@ -42,11 +40,9 @@ body {
     box-shadow: rgba(0, 0, 0, 0.347656) 2px 2px 3px;
     cursor: pointer;
 }
-
 .customControl > div.top:hover {
     border: 1px solid #678AC7;
 }
-
 .customControl > div.top-active {
     color: white;
     font-weight: bold;
@@ -54,7 +50,6 @@ body {
     border: 1px solid #678AC7;
     background-image: url('control-bg-active.png');
 }
-
 .customControl > div.dropDown {
     font-size: 12px;
     background-color: white;
@@ -63,7 +58,6 @@ body {
     box-shadow: rgba(0, 0, 0, 0.347656) 2px 2px 3px;
     display: none;
 }
-
 .customControl > div.button {
     border: 1px solid #000;
     font-size: 12px;

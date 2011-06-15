@@ -564,7 +564,7 @@ var overviewer = {
 
             // Spawn button
             var homeControlDiv = document.createElement('DIV');
-            var homeControl = new overviewer.classes.HomeControl(homeControlDiv);
+            var homeControl = new overviewer.classes.HomeControl(homeControlDiv);  
             $(homeControlDiv).addClass('customControl');
             homeControlDiv.index = 1;
             if (overviewerConfig.map.controls.spawn) {
