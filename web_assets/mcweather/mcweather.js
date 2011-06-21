@@ -174,7 +174,7 @@ $(document).ready(
             */
             var mcwStyleDiv = document.createElement("DIV");
             mcwStyleDiv.style.position = 'absolute';
-            mcwStyleDiv.style.bottom = '35px';
+            mcwStyleDiv.style.bottom = '55px';
             mcwStyleDiv.style.left = '5px';
             mcwStyleDiv.style.width = '140px';
             mcwStyleDiv.style.color = '#FFFFFF';
