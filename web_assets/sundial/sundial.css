@@ -24,11 +24,11 @@ This software is copyright by sunkid <sunkid@iminurnetz.com> and is distributed 
 .datetime {
 	position: relative;
 	z-index: 20;
-	top: -50px;
+	top: -60px;
 	left: 50px;
 	width: 100px;
 	text-align: right;
-	font-size: 8pt
+	font-size: 8pt;
 }
 
 .mcdial {
@@ -55,6 +55,7 @@ This software is copyright by sunkid <sunkid@iminurnetz.com> and is distributed 
 #sdcredits {
     font-size: 7pt; 
     left: 15px;
+    top: -80;
 }
 
 #debug { visibility: hidden; }
