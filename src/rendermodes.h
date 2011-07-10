@@ -118,7 +118,7 @@ typedef struct {
 } RenderModeLighting;
 extern RenderModeInterface rendermode_lighting;
 inline float get_lighting_coefficient(RenderModeLighting *self, RenderState *state,
-                                      int x, int y, int z, int *authoratative);
+                                      int x, int y, int z);
 
 /* NIGHT */
 typedef struct {
@@ -155,6 +155,13 @@ typedef struct {
     
 } RenderModeCave;
 extern RenderModeInterface rendermode_cave;
+
+/* MINERAL */
+typedef struct {
+    /* inherits from overlay */
+    RenderModeOverlay parent;
+} RenderModeMineral;
+extern RenderModeInterface rendermode_mineral;
 
 
 #endif /* __RENDERMODES_H_INCLUDED__ */

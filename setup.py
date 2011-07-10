@@ -3,6 +3,7 @@ from distutils.command.build import build
 from distutils.command.clean import clean
 from distutils.command.build_ext import build_ext
 from distutils.dir_util import remove_tree
+from distutils.sysconfig import get_python_inc
 from distutils import log
 import os, os.path
 import glob
@@ -52,10 +53,13 @@ except AttributeError:
 try:
     pil_include = os.environ['PIL_INCLUDE_DIR'].split(os.pathsep)
 except:
-    pil_include = []
+    pil_include = [ os.path.join(get_python_inc(plat_specific=1), 'Imaging') ]
+    if not os.path.exists(pil_include[0]):
+        pil_include = [ ]
+        
 
 # used to figure out what files to compile
-render_modes = ['normal', 'overlay', 'lighting', 'night', 'spawn', 'cave']
+render_modes = ['normal', 'overlay', 'lighting', 'night', 'spawn', 'cave', 'mineral']
 
 c_overviewer_files = ['src/main.c', 'src/composite.c', 'src/iterate.c', 'src/endian.c', 'src/rendermodes.c']
 c_overviewer_files += map(lambda mode: 'src/rendermode-%s.c' % (mode,), render_modes)

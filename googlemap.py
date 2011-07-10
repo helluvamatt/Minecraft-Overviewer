@@ -19,7 +19,7 @@ import stat
 import cPickle
 import Image
 import shutil
-from time import strftime, gmtime, localtime
+from time import strftime, localtime
 import json
 
 import util
@@ -66,7 +66,8 @@ class MapGen(object):
         image format, and world. 
         Note:tiledir for each quadtree should be unique. By default the tiledir is determined by the rendermode"""
         
-        self.skipjs = configInfo.get('skipjs', None)
+        self.skipjs = configInfo.get('skipjs', False)
+        self.nosigns = configInfo.get('nosigns', False)
         self.web_assets_hook = configInfo.get('web_assets_hook', None)
         self.web_assets_path = configInfo.get('web_assets_path', None)
         self.bg_color = configInfo.get('bg_color')
@@ -130,8 +131,7 @@ class MapGen(object):
         indexpath = os.path.join(self.destdir, "index.html")
 
         index = open(indexpath, 'r').read()
-        index = index.replace(
-                "{time}", str(strftime("%a, %d %b %Y %I:%M:%S %p %Z", localtime())))
+        index = index.replace("{time}", str(strftime("%a, %d %b %Y %I:%M:%S %p %Z", localtime())))
         index = index.replace("{version}", util.findGitVersion())
 
         with open(os.path.join(self.destdir, "index.html"), 'w') as output:
@@ -153,13 +153,18 @@ class MapGen(object):
         # we need to merge self.world.POI with the persistant data in world.PersistentData
 
         self.world.POI += filter(lambda x: x['type'] != 'spawn', self.world.persistentData['POI'])
+        
+        if self.nosigns:
+            markers = filter(lambda x: x['type'] != 'sign', self.world.POI)
+        else:
+            markers = self.world.POI
 
         # write out the default marker table
         with open(os.path.join(self.destdir, "markers.js"), 'w') as output:
             output.write("overviewer.collections.markerDatas.push([\n")
-            for marker in self.world.POI:
+            for marker in markers:
                 output.write(json.dumps(marker))
-                if marker != self.world.POI[-1]:
+                if marker != markers[-1]:
                     output.write(",")
                 output.write("\n")
             output.write("]);\n")
